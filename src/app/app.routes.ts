@@ -6,7 +6,10 @@ import { NgModule } from '@angular/core';
 export const routes: Routes = [
     {path:'',component:LoginComponent},
     {path:'register',component:RegisterComponent},
-    { path: 'dashboard', loadChildren: () => import('./home/home.component').then(m => m.HomeComponent) }
+    {
+        path: 'dashboard',
+        loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent)
+    }
 ];
 
 @NgModule({
