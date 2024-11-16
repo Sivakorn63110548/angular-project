@@ -1,0 +1,66 @@
+<div *ngIf="isLoading" class="card flex justify-content-center loading-overlay">
+  <p-progressSpinner
+      styleClass="w-4rem h-4rem" 
+      strokeWidth="8" 
+      fill="var(--surface-ground)" 
+      animationDuration=".5s" />
+</div>
+<div class="login-left">
+  <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%;">
+    <h2 class="text-center mb-4">Login! 👋</h2>
+    <p class="text-center mb-4">- Sign In With -</p>
+
+    <div class="d-flex justify-content-center mb-4">
+      <button class="btn btn-outline-primary me-2" (click)="facebook_login()">
+        <i class="fa-brands fa-facebook"></i>
+      </button>
+      <button class="btn btn-outline-danger me-2">
+        <i class="fa-brands fa-google"></i>
+      </button>
+      <button class="btn btn-outline-dark me-2">
+        <i class="fa-brands fa-apple"></i>
+      </button>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Username</label>
+      <input type="email" id="email" name="email" [(ngModel)]="username" placeholder="Username"
+        class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <div class="input-group">
+        <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="******"
+          class="form-control">
+          <button class="btn btn-outline-secondary" type="button" id="password-toggle" (click)="togglePasswordVisibility()">
+            <i class="fa-solid" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'" id="password-toggle-icon"></i>
+          </button>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary w-100 mt-4" (click)="login()">Log In</button>
+
+    <p class="text-center mt-3">Don't have an account? <a [routerLink]="['/register']"
+        routerLinkActive="router-link-active">Sign Up Now</a></p>
+    <p class="text-center mt-3 mb-0 footer-text">© Angular-Sivakorn . Crafted with ❤️ by BookBig</p>
+  </div>
+
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

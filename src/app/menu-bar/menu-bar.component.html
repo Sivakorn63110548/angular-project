@@ -1,0 +1,86 @@
+<div class="min-h-full">
+  <nav class="bg-gradient-to-r from-pink-100 via-indigo-200 to-blue-300 shadow-lg">
+    <div class="flex h-16 items-center justify-between w-full p-9 rounded-lg">
+      <div class="flex items-center">
+        <div class="shrink-0">
+          <img class="w-20 h-20 border-20 border-gray-200 rounded-lg p-2" src="..//../assets/img/logo.png" alt="My Company">
+        </div>
+        <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a routerLink="/dashboard" class="rounded-md bg-pink-500 px-3 py-2 text-sm font-medium text-white hover:bg-pink-600 transition-colors" aria-current="page">Dashboard</a>
+              <a routerLink="/team" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-indigo-400 hover:text-white transition-colors">Team</a>
+              <a routerLink="/projects" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-indigo-400 hover:text-white transition-colors">Projects</a>
+              <a routerLink="/calendar" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-indigo-400 hover:text-white transition-colors">Calendar</a>
+              <a routerLink="/reports" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-indigo-400 hover:text-white transition-colors">Reports</a>
+            </div>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <div class="ml-4 flex items-center md:ml-6">
+          <button type="button" class="relative rounded-full bg-pink-500 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-pink-600">
+            <span class="absolute -inset-1.5"></span>
+            <span class="sr-only">View notifications</span>
+            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+            </svg>
+          </button>
+
+          <!-- Profile dropdown -->
+          <div class="relative ml-3">
+            <div>
+              <button 
+                (click)="toggleDropdown()" 
+                type="button" 
+                class="relative flex items-center justify-center w-12 h-12 rounded-full bg-indigo-400 text-white text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-400 hover:bg-indigo-500 transition-all ease-in-out duration-200">
+                <span class="sr-only">Open user menu</span>
+                <img 
+                  class="w-10 h-10 rounded-full border-2 border-white object-cover mx-auto avatar-img"
+                  [src]="userInfo?.img"
+                  alt="User Avatar"
+                  (click)="user_detail()"
+                  >
+              </button>
+          
+              <div *ngIf="isOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div class="px-4 py-3 text-center">
+                  <img class="w-20 h-20 rounded-full mx-auto object-cover ring-2 ring-gray-300" [src]="userInfo?.img" alt="User Avatar">
+                  <p class="text-sm font-medium text-gray-700 mt-2">👤  {{ userInfo?.username }}</p>
+                </div>
+                
+                <div class="flex flex-col space-y-5 px-4 py-2">
+                  <div class="flex justify-between w-full space-x-2">
+                    <button (click)="toggleDropdown()" class="flex items-center justify-center w-1/2 h-12 text-gray-700 hover:text-blue-500 border-2 border-blue-500 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                      <i class="fa-solid fa-gear"></i>
+                    </button>
+                    <button (click)="toggleDropdown()"  class="flex items-center justify-center w-1/2 h-12 text-gray-700 hover:text-green-500 border-2 border-green-500 rounded-lg focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
+                      <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                  </div>
+                  
+                  <div class="w-full text-center">
+                    <button (click)="log_out()" class="flex items-center justify-center w-full h-12 text-gray-700 hover:text-blue-500 border-2 border-red-500 rounded-lg focus:outline-none focus:ring-4 focus:ring-red-500 focus:ring-opacity-50">
+                      <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="-mr-2 flex md:hidden">
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md bg-pink-500 p-2 text-gray-400 hover:bg-pink-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-pink-600" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>

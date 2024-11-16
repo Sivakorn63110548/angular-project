@@ -1,0 +1,16 @@
+/* src/styles.css หรือ src/app.component.css */
+.p-menubar {
+    background: linear-gradient(179deg, #000407, #0565ff);
+  }
+  
+  .p-menubar .p-menuitem {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .p-menubar .p-menuitem-text {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  

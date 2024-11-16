@@ -1,0 +1,104 @@
+<div *ngIf="isLoading" class="card flex justify-content-center loading-overlay">
+  <p-progressSpinner
+      styleClass="w-4rem h-4rem" 
+      strokeWidth="8" 
+      fill="var(--surface-ground)" 
+      animationDuration=".5s" />
+</div>
+
+<div class="register">
+    <div class="card p-4 shadow-lg" style="max-width: 600px; width: 100%;">
+        <h3>Register</h3>
+        <p-steps [(activeIndex)]="activeIndex" [model]="steps" class="mb-4"></p-steps>
+      
+        <div [@slide]="activeIndex" *ngIf="activeIndex === 0">
+          <form [formGroup]="personalInfoForm" (ngSubmit)="nextStep()">
+            <h4>Step 1: Personal Information</h4>
+
+            <div *ngIf="selectedImage">
+              <h5>Uploaded Image:</h5>
+              <img [src]="selectedImage" alt="Profile Picture" class="img-thumbnail" style="max-width: 150px;" />
+            </div>
+
+            <div class="mb-3">
+              <label for="imageUpload" class="form-label">Upload Profile Picture</label>
+              <input id="imageUpload" type="file" class="form-control" (change)="onImageSelected($event)" />
+            </div>
+        
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input id="name" type="text" class="form-control" formControlName="name" />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input id="email" type="email" class="form-control" formControlName="email" />
+            </div>
+            <button type="button" class="btn btn-primary" (click)="nextStep()">Next <i class="pi pi-arrow-right"></i></button>
+          </form>
+        </div>
+      
+        <div [@slide]="activeIndex" *ngIf="activeIndex === 1">
+          <form [formGroup]="accountForm" (ngSubmit)="nextStep()">
+            <!-- Step 2: Account Details -->
+            <h4>Step 2: Account Details</h4>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input id="username" type="text" class="form-control" formControlName="username" />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input id="password" type="password" class="form-control" formControlName="password" />
+            </div>
+            <button type="button" class="btn btn-primary" (click)="nextStep()">Next <i class="pi pi-arrow-right"></i></button>
+            <button type="button" class="btn btn-secondary" (click)="previousStep()"><i class="pi pi-arrow-left"></i> Back</button>
+          </form>
+        </div>
+      
+        <div [@slide]="activeIndex" *ngIf="activeIndex === 2">
+          <form [formGroup]="contactForm" (ngSubmit)="nextStep()">
+            <!-- Step 3: Contact Information -->
+            <h4>Step 3: Contact Information</h4>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input id="phone" type="text" class="form-control" formControlName="phone" />
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input id="address" type="text" class="form-control" formControlName="address" />
+            </div>
+            <button type="button" class="btn btn-primary" (click)="nextStep()">Next <i class="pi pi-arrow-right"></i></button>
+            <button type="button" class="btn btn-secondary" (click)="previousStep()"><i class="pi pi-arrow-left"></i> Back</button>
+          </form>
+        </div>
+      
+        <div [@slide]="activeIndex" *ngIf="activeIndex === 3">
+          <form [formGroup]="reviewForm" (ngSubmit)="submitForm()">
+            <!-- Step 4: Review & Submit -->
+            <h4>Step 4: Review & Submit</h4>
+            <p>Review your details before submission.</p>
+            <div class="button-next">
+              <button type="submit" class="btn btn-success">Submit <i class="pi pi-check"></i></button>
+              <button type="button" class="btn btn-secondary" (click)="previousStep()"><i class="pi pi-arrow-left"></i> Back</button>
+            </div>
+          </form>
+        </div>
+      
+        <p class="text-center mt-3">
+          Already have an account? <a [routerLink]="['/']" routerLinkActive="router-link-active">Login</a>
+        </p>
+    </div>
+    <p-toast></p-toast>
+  
+    <ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>  
+  </div>

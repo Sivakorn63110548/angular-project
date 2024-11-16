@@ -1,0 +1,155 @@
+.login-left {
+  background: linear-gradient(179deg, rgba(138, 43, 226, 0.6), rgba(100, 149, 237, 0.5), rgba(186, 85, 211, 0.4), rgba(221, 160, 221, 0.3), rgba(255, 255, 255, 0.2));
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 20px;
+  z-index: 0;
+}
+
+.login-left .card {
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.bg-bubbles {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.bg-bubbles li {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(100, 149, 237, 0.9);
+  box-shadow: 0 0 10px rgba(100, 149, 237, 0.7);
+  animation: bubbleAnimation 4s ease-in-out infinite, floatAnimation 18s linear infinite;
+}
+
+.bg-bubbles li:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  left: 20%;
+  bottom: -100px;
+  animation-delay: 0s;
+}
+
+.bg-bubbles li:nth-child(2) {
+  width: 50px;
+  height: 50px;
+  left: 40%;
+  bottom: -50px;
+  animation-delay: 2s;
+}
+
+.bg-bubbles li:nth-child(3) {
+  width: 60px;
+  height: 60px;
+  left: 60%;
+  bottom: -70px;
+  animation-delay: 1s;
+}
+
+.bg-bubbles li:nth-child(4) {
+  width: 40px;
+  height: 40px;
+  left: 80%;
+  bottom: -30px;
+  animation-delay: 2s;
+}
+
+.bg-bubbles li:nth-child(5) {
+  width: 70px;
+  height: 70px;
+  left: 10%;
+  bottom: -120px;
+  animation-delay: 3s;
+}
+
+.bg-bubbles li:nth-child(6) {
+  width: 55px;
+  height: 55px;
+  left: 25%;
+  bottom: -80px;
+  animation-delay: 4s;
+}
+
+.bg-bubbles li:nth-child(7) {
+  width: 65px;
+  height: 65px;
+  left: 50%;
+  bottom: -110px;
+  animation-delay: 2.5s;
+}
+
+.bg-bubbles li:nth-child(8) {
+  width: 75px;
+  height: 75px;
+  left: 75%;
+  bottom: -90px;
+  animation-delay: 3s;
+}
+
+.bg-bubbles li:nth-child(9) {
+  width: 60px;
+  height: 60px;
+  left: 10%;
+  bottom: -130px;
+  animation-delay: 1.5s;
+}
+
+.bg-bubbles li:nth-child(10) {
+  width: 50px;
+  height: 50px;
+  left: 60%;
+  bottom: -60px;
+  animation-delay: 4s;
+}
+
+.footer-text{
+  font-size: 12px;
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(-30px) scale(1.05);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translateY(-70px) scale(1.1);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translateY(-120px) scale(1.1);
+    opacity: 0.5;
+  }
+  80% {
+    transform: translateY(-160px) scale(1.05);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-200px) scale(1);
+    opacity: 0;
+  }
+}
