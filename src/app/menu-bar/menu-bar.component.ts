@@ -48,7 +48,7 @@ export class MenuBarComponent implements OnInit {
     const token = localStorage.getItem('authToken');
     
     if (!token) {
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
       return;
     }
 
